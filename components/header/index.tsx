@@ -7,7 +7,7 @@ export default function Header() {
     <ul className={styles.list}>
       <li className={styles.item}><Link href='/'>Home</Link></li>
       <li className={styles.item}><Link href='/gallery'>Gallery</Link></li>
-      <li className={styles.item}><Link href='/gallery/porto'>Portofolio</Link></li>
+      <li className={styles.item}><Link href='/blog'>Blog</Link></li>
     </ul>
   </header>
   )

@@ -1,8 +1,10 @@
+import Layout from "@/components/layout";
+
 export default function porto() {
   return (
-    <div>
+    <Layout pageTitle="Portofolio">
         <h1>This is my Portofolio</h1>
         <p>Hi! Welcome to my Portofolio Page</p>
-    </div>
+    </Layout>
   )
 }
