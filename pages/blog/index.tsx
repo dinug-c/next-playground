@@ -1,21 +1,25 @@
 import Layout from "@/components/layout";
-import { useRouter } from "next/router";
-import styles from "../../styles/Posts.module.css"
+import styles from "../../styles/Users.module.css";
+
+interface Post {
+    id: number;
+    title: string;
+    body: string;
+}
 
 interface PostProps {
-    dataPosts: Array<any>;
+    dataBlog: Post[];
 }
 
 export default function Blog(props: PostProps) {
-  const {dataPosts} = props;
-  const router = useRouter();
+  const {dataBlog} = props;
   return (
     <Layout pageTitle="Blog">
-        {dataPosts.map((post) => {
+        {dataBlog.map((blog) => {
             return (
-                <div key={post.id} onClick={() => router.push(`/blog/${post.id}`)} className={styles.card}>
-                    <p>{post.id}</p>
-                    <p>{post.title}</p>
+                <div key={blog.id} className={styles.card}>
+                    <h3>{blog.title}</h3>
+                    <p>{blog.body}</p>
                 </div>
             )
         })}
@@ -23,12 +27,12 @@ export default function Blog(props: PostProps) {
   )
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
     const res = await fetch('https://jsonplaceholder.typicode.com/posts');
-    const dataPosts = await res.json();
-    return{
+    const dataBlog = await res.json();
+    return {
         props: {
-            dataPosts,
+            dataBlog,
         }
     }
 }
