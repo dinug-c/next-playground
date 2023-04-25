@@ -6,6 +6,7 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
+  scroll-behavior: smooth;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -21,6 +22,7 @@ body {
   max-width: 1400px;
   margin: auto;
   height: 100%;
+  
   /* color: rgb(var(--foreground-rgb));
   background: linear-gradient(
       to bottom,
@@ -43,4 +45,12 @@ body {
 .title-not-found{
   color: darkgray;
   text-align: center;
+}
+
+.card-tail {
+  background-image: url('https://source.unsplash.com/1000x600?sky');
+}
+
+#toggle:checked ~ label div.toggle-circle {
+  @apply translate-x-3
 }
